@@ -1,33 +1,75 @@
-# Tenner-Grid
-This project implements a solver for the Tenner Grid puzzle using constraint satisfaction problem (CSP) algorithms in Java.
+# Logistic Regression Homework
 
-## Problem Statement 
+## 📌 Overview
+This project implements **logistic regression** for binary classification using the **Apple Quality Dataset**. It includes:
+- Data Preparation
+- Logistic Regression (with and without Regularization)
+- Model Evaluation
+- Comparison of Regularization Strengths
+- ROC Curve Visualization
 
-The Tenner Grid puzzle involves filling a rectangular grid with numbers from 0 to 9 while satisfying specific constraints. 
-Each row must contain unique numbers, column sums are predefined, and adjacent digits must not repeat. 
-This project aims to solve Tenner Grid puzzles by modeling them as CSPs and implementing three algorithms: simple backtracking, forward checking, and forward checking with the MRV heuristic.
+## 📂 Files
+- `logistic_regression_notebook.ipynb`: Jupyter Notebook implementing logistic regression.
+- `apple_quality.csv`: Dataset (loaded from GitHub).
 
-## Project Structure: 
+## 🛠️ Setup
+### 1️⃣ **Install Dependencies**
+```bash
+pip install pandas numpy scikit-learn matplotlib
+```
 
-This project consists of the following components:
+### 2️⃣ **Run Jupyter Notebook**
+```bash
+jupyter notebook logistic_regression_notebook.ipynb
+```
 
-### Backtrack Class:
-Contains the implementation of the simple backtracking algorithm for solving Tenner Grid puzzles.
+## 🚀 Implementation
+### **1. Data Preparation**
+- Load the dataset
+- Handle missing values
+- Standardize features
+- Split into training/testing sets
 
-### Cell Class:
-Represents a single cell in the Tenner Grid, storing its value and constraints.
+### **2. Logistic Regression Implementation**
+- Train logistic regression **without regularization**
+- Evaluate model using:
+  - Accuracy, Precision, Recall, F1-score, ROC-AUC
 
-### ForwardChecking Class:
-Implements the forward checking algorithm for solving Tenner Grid puzzles.
+### **3. Logistic Regression with Regularization**
+- Train models with **L2 regularization** (`C=0.1, 1, 10`)
+- Compare model performance
 
-### ForwardCheckingMRV Class:
-Implements the forward checking algorithm with the MRV heuristic for solving Tenner Grid puzzles.
+### **4. AUC & Model Comparison**
+- Compute **ROC-AUC score**
+- Plot **ROC Curve** for the best model
+- Visualize model performance across different regularization strengths
 
-### TennerGrid Class:
-Contains the main logic for generating Tenner Grid puzzles, applying CSP algorithms, and analyzing performance. It coordinates the interaction between the various algorithms.
+## 📊 Results
+- Models with **C=1** perform best in terms of accuracy.
+- Stronger regularization (`C=0.1`) prevents overfitting but reduces accuracy.
+- Weaker regularization (`C=10`) fits better but may overfit.
 
-## Contents:
+## ❓ Theoretical Questions & Answers
+**Q1: Why is standardization important?**
+> Standardization ensures features have similar scales, improving convergence speed and model performance.
 
-- "src/": contains the source code of the program in Java.
-  
-- "README.md": you are reading it right now!
+**Q2: What does regularization do?**
+> Regularization reduces overfitting by penalizing large coefficients, improving generalization.
+
+**Q3: How does `C` affect regularization?**
+> Smaller `C` applies stronger regularization, increasing bias but reducing variance.
+
+**Q4: Why is ROC-AUC used?**
+> ROC-AUC measures how well the model separates classes, useful for imbalanced datasets.
+
+**Q5: Why use logistic regression?**
+> Simple, interpretable, computationally efficient, and effective for linearly separable data.
+
+## 📜 License
+This project is licensed under the **MIT License**.
+
+
+## 📝 Author
+- **Savana Al-shubayli**
+
+
